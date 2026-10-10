@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/pages/home.dart';
+import 'ui/pages/single_fetch.dart';
 
 void main() {
   runApp(const DataBridge());
@@ -11,7 +11,7 @@ class DataBridge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: SingleFetch(),
     );
   }
 }

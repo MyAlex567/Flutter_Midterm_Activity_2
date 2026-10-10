@@ -14,7 +14,13 @@ class PokemonSprite extends StatelessWidget {
       image,
       width: 120,
       height: 220,
-      fit: BoxFit.contain,      
+      fit: BoxFit.contain,
+      errorBuilder: (context, error, stackTrace){
+        return const Icon(
+          Icons.broken_image,
+          size: 50,
+        );
+      },      
     );
   }
 }
