@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../models/pokemon.dart';
 import '../atoms/app_text.dart';
-import '../organism/pokemon_card.dart';
 
 class PokemonTemplates extends StatelessWidget {
-  final List<Pokemon> pokemonList;
+  final List<Widget> pokemonList;
 
   const PokemonTemplates({
     super.key,
@@ -21,12 +19,7 @@ class PokemonTemplates extends StatelessWidget {
           child: Column(
             children: [
               AppText(text: "P O K É M O N", definedStyle: DefinedStyle.pageTitle),
-              PokemonCard(
-                name: pokemonList[index].name, 
-                hp: "HP: 500", 
-                image: pokemonList[index].image, 
-                type: pokemonList[index].type  
-              ),
+              pokemonList[index],
             ],
           ),
         );

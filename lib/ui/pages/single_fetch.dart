@@ -5,6 +5,7 @@ import '../atoms/app_button.dart';
 import '../templates/pokemon_templates.dart';
 import 'stream_page.dart';
 import '../../services/pokemon_services.dart';
+import '../organism/pokemon_card.dart';
 
 class SingleFetch extends StatefulWidget {
   const SingleFetch({super.key});
@@ -71,7 +72,16 @@ class _SingleFetchState extends State<SingleFetch> {
       return const Center(child: AppText(text: "There's no Pokemon now", definedStyle: DefinedStyle.pokemonName),);
     }
 
-    return PokemonTemplates(pokemonList: pokemons);
+    final pokemonCards = pokemons.map((pok){
+      return PokemonCard(
+        name: pok.name, 
+        hp: "HP: 500", 
+        image: pok.image, 
+        type: pok.type  
+      );
+    }).toList();
+
+    return PokemonTemplates(pokemonList: pokemonCards);
   }
 
 }

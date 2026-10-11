@@ -4,6 +4,7 @@ import '../../models/pokemon.dart';
 import '../atoms/app_text.dart';
 import '../templates/pokemon_templates.dart';
 import '../../services/pokemon_services.dart';
+import '../organism/pokemon_card.dart';
 
 class StreamPage extends StatefulWidget {
   const StreamPage({super.key});
@@ -76,9 +77,18 @@ class _StreamPageState extends State<StreamPage> {
             );
           }
 
-          final List<Pokemon> pokemon = [snapshot.data!] ;
+          final List<Pokemon> pokemon = [snapshot.data!];
 
-          return PokemonTemplates(pokemonList: pokemon);
+          final pokemonCards = pokemon.map((pok){
+            return PokemonCard(
+              name: pok.name, 
+              hp: "HP: 500", 
+              image: pok.image, 
+              type: pok.type  
+            );
+          }).toList();          
+
+          return PokemonTemplates(pokemonList: pokemonCards);
         }
       ),
     );
